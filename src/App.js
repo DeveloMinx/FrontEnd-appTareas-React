@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ShowTask from './components/showTask';
+import AddTaskForm from './components/addTaskForm';
+import EditTaskForm from './components/editTaskForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ShowTask />} />
+        <Route path="/agregar" element={<AddTaskForm />} />
+        <Route path="/editar/:id" element={<EditTaskForm />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
